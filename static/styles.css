@@ -8,30 +8,114 @@ body {
 }
 
 
-h1, h2 {
+ h2 {
     text-align: center;
     color: #003366; /* Biru tua */
 }
 
+/* Styling untuk navigation bar */
 .navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 255, 0.9); /* Warna biru solid saat di atas */
+    color: #fff;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.navigation.transparent {
+    background-color: rgba(0, 0, 255, 0.5); /* Transparan saat di scroll */
+}
+
+.navigation h1 {
+    font-size: 24px;
+    margin: 0;
 }
 
 .navigation a {
     text-decoration: none;
-    padding: 10px 15px;
-    background-color: #007acc; /* Biru sedang */
-    color: white;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    color: inherit; /* Menjaga warna teks mengikuti warna navbar */
 }
 
-.navigation a:hover {
-    background-color: #005ea6; /* Biru gelap */
+/* Styling untuk bagian kanan */
+.right {
+    display: flex;
+    align-items: center;
+    margin-right: 10rem;
 }
+
+/* Styling button utama */
+.main-button {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin-right: 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.main-button:hover {
+    background-color: white;
+    color: #000;
+}
+
+/* Styling dropdown */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropbtn:hover {
+    background-color: white;
+    color: #000;
+}
+
+/* Styling dropdown menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 255, 0.9); /* Warna biru solid */
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 
 .alert {
     width: 80%;
@@ -57,6 +141,7 @@ h1, h2 {
     gap: 20px; /* Jarak antar elemen */
     max-width: 90%; /* Membatasi lebar keseluruhan */
     margin: 20px auto; /* Pusatkan wrapper */
+    margin-top: 7rem;
 }
 
 /* Form container */
@@ -186,6 +271,7 @@ body > .form-container {
 /* Styling untuk link kembali */
 .back-link {
     display: inline-block;
+    margin-top: 6rem;
     padding: 10px 20px;
     background-color: #f0f0f0;
     color: #007bff;
@@ -200,17 +286,4 @@ body > .form-container {
     color: #0056b3;
 }
 
-/* Styling untuk tombol lihat data terakhir */
-.main-button {
-    color: blue;
-    text-decoration: none;
-    font-size: 18px;
-    border-radius: 5px;
-    text-align: center;
-    transition: background-color 0.3s;
-}
-
-.main-button:hover {
-    background-color: #a6b7ca;
-}
 

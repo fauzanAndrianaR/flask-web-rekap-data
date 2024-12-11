@@ -9,31 +9,29 @@
 
 </head>
 <body>
-    <h1>Siswa Rekap Dashboard <a href="/lihat-data-terakhir" class="main-button">Lihat Rekap Terakhir</a>
-    </h1>
-
+  
 
     <!-- Navigasi -->
     <div class="navigation">
-        <a href="/total-students">Total Siswa per Kabupaten/Kota</a>
-        <a href="/gender-students">Rekap Siswa Berdasarkan Jenis Kelamin</a>
-        <a href="/rekap-agama">Rekap Berdasarkan Agama</a>
-        <a href="/rekap-kecamatan">Rekap Berdasarkan Kecamatan</a>
-        <a href="/rekap-sekolah">Rekap Berdasarkan Sekolah</a>
-    </div>
 
-    <!-- Menampilkan Flash Message -->
-    <div>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert {{ category }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+        <h1 class="left"><a href="/">Rekap Data Dashboard</a></h1>
+        <div class="right">
+            <a href="/lihat-data-terakhir" class="main-button">Lihat Rekap Terakhir</a>
+            <div class="dropdown">
+                <button class="dropbtn">Pilih Tabel Rekap :</button>
+                <div class="dropdown-content">
+                    <a href="/total-students">Total Siswa per Kabupaten/Kota</a>
+                    <a href="/gender-students">Rekap Siswa Berdasarkan Jenis Kelamin</a>
+                    <a href="/rekap-agama">Rekap Berdasarkan Agama</a>
+                    <a href="/rekap-kecamatan">Rekap Berdasarkan Kecamatan</a>
+                    <a href="/rekap-sekolah">Rekap Berdasarkan Sekolah</a>
+                </div>
+            </div>
+        </div>
     </div>
+    
+   
+
 
     <!-- Wrapper untuk kedua form-container -->
 <div class="form-grid">
@@ -63,6 +61,19 @@
         </form>
     </div>
 </div>
+
+    <!-- Menampilkan Flash Message -->
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
 
 <div class="search-container">
     <label for="search-input">Search:</label>

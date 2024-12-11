@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lihat Agregasi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
   <style>
     /* Styling dasar */
 body {
@@ -85,7 +87,7 @@ table {
 
 table th,
 table td {
-    text-align: left;
+    text-align: center;
     padding: 8px 12px;
     border: 1px solid #ddd;
 }
@@ -94,6 +96,7 @@ table th {
     background-color: #f4f4f4;
     font-weight: bold;
     text-align: center;
+    color: black;
 }
 
 table tbody tr:nth-child(even) {
@@ -108,6 +111,24 @@ table tbody tr:hover {
   </style>
 </head>
 <body>
+    <!-- Navigasi -->
+    <div class="navigation">
+
+        <h1 class="left"><a href="/">Rekap Data Dashboard</a></h1>
+        <div class="right">
+            <a href="/lihat-data-terakhir" class="main-button">Lihat Rekap Terakhir</a>
+            <div class="dropdown">
+                <button class="dropbtn">Pilih Tabel Rekap :</button>
+                <div class="dropdown-content">
+                    <a href="/total-students">Total Siswa per Kabupaten/Kota</a>
+                    <a href="/gender-students">Rekap Siswa Berdasarkan Jenis Kelamin</a>
+                    <a href="/rekap-agama">Rekap Berdasarkan Agama</a>
+                    <a href="/rekap-kecamatan">Rekap Berdasarkan Kecamatan</a>
+                    <a href="/rekap-sekolah">Rekap Berdasarkan Sekolah</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <a href="/" class="back-link">Kembali ke Halaman Utama</a>
 
     <h1>Agregasi Data Siswa pada {{ tanggal_awal }} hingga {{ tanggal_akhir }}</h1>

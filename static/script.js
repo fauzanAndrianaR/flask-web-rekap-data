@@ -57,3 +57,16 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial render
     renderTable(currentPage);
 });
+// JavaScript untuk mengubah navbar menjadi transparan saat scroll
+window.onscroll = function() {
+    toggleNavbarTransparency();
+};
+
+function toggleNavbarTransparency() {
+    const navbar = document.querySelector('.navigation');
+    if (window.scrollY > 0) {
+        navbar.classList.add('transparent'); // Tambahkan class untuk transparan
+    } else {
+        navbar.classList.remove('transparent'); // Hapus class saat kembali ke posisi atas
+    }
+}
