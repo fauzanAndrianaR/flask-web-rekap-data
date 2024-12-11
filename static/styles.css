@@ -1,0 +1,216 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff; /* Biru muda */
+    color: #333;
+}
+
+
+h1, h2 {
+    text-align: center;
+    color: #003366; /* Biru tua */
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.navigation a {
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #007acc; /* Biru sedang */
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navigation a:hover {
+    background-color: #005ea6; /* Biru gelap */
+}
+
+.alert {
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.alert.success {
+    background-color: #4caf50; /* Hijau */
+}
+
+.alert.error {
+    background-color: #f44336; /* Merah */
+}
+
+/* Wrapper untuk grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom dengan lebar sama */
+    gap: 20px; /* Jarak antar elemen */
+    max-width: 90%; /* Membatasi lebar keseluruhan */
+    margin: 20px auto; /* Pusatkan wrapper */
+}
+
+/* Form container */
+.form-container {
+    background-color: #e6f2ff; /* Biru sangat muda */
+    padding: 20px;
+    border: 1px solid #007acc;
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #003366;
+}
+
+button {
+    padding: 10px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005ea6;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #007acc;
+}
+
+table th {
+    background-color: #007acc;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #f0f8ff;
+}
+
+/* Grid untuk form-container */
+body > .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+.search-container {
+    margin: 20px auto; /* Tengah secara horizontal */
+    display: flex;
+    justify-content: center; /* Pusatkan secara horizontal */
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0; /* Tambahkan ruang atas dan bawah */
+}
+
+.search-container label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Warna teks */
+}
+
+.search-container input {
+    padding: 10px 15px;
+    width: 50%; /* Atur lebar 50% */
+    border: 1px solid #007acc; /* Border biru */
+    border-radius: 5px; /* Sudut membulat */
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #005f99; /* Border saat fokus */
+    box-shadow: 0 0 5px rgba(0, 122, 204, 0.8); /* Efek cahaya */
+}
+
+
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.pagination-controls button {
+    padding: 10px 15px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-controls #page-info {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* Styling untuk link kembali */
+.back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.back-link:hover {
+    background-color: #d0d0d0;
+    color: #0056b3;
+}
+
+/* Styling untuk tombol lihat data terakhir */
+.main-button {
+    color: blue;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.main-button:hover {
+    background-color: #a6b7ca;
+}
+

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siswa Rekap Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+    <h1>Siswa Rekap Dashboard <a href="/lihat-data-terakhir" class="main-button">Lihat Rekap Terakhir</a>
+    </h1>
+
+
+    <!-- Navigasi -->
+    <div class="navigation">
+        <a href="/total-students">Total Siswa per Kabupaten/Kota</a>
+        <a href="/gender-students">Rekap Siswa Berdasarkan Jenis Kelamin</a>
+        <a href="/rekap-agama">Rekap Berdasarkan Agama</a>
+        <a href="/rekap-kecamatan">Rekap Berdasarkan Kecamatan</a>
+        <a href="/rekap-sekolah">Rekap Berdasarkan Sekolah</a>
+    </div>
+
+    <!-- Menampilkan Flash Message -->
+    <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- Wrapper untuk kedua form-container -->
+<div class="form-grid">
+    <div class="form-container">
+        <h3>Pilih Opsi Rekap Data:</h3>
+        <form action="/jalankan-agregasi" method="post">
+            <label for="pilihan">Pilih Rekapitulasi:</label>
+            <select name="pilihan" id="pilihan">
+                <option value="1">Rekap Total Siswa per Kabupaten/Kota</option>
+                <option value="2">Rekap Jumlah Siswa Berdasarkan Jenis Kelamin</option>
+                <option value="3">Rekap Berdasarkan Agama</option>
+                <option value="4">Rekap Berdasarkan Kecamatan</option>
+                <option value="5">Rekap Berdasarkan Sekolah</option>
+            </select>
+            <button type="submit">Lakukan Rekap</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form action="/lihat-agregasi" method="post">
+            <h3>Lihat Rekap Berdasarkan Periode:</h3>
+            <label for="tanggal_awal">Pilih Tanggal Awal:</label>
+            <input type="date" name="tanggal_awal" id="tanggal_awal" required>
+            <label for="tanggal_akhir">Sampai dengan:</label>
+            <input type="date" name="tanggal_akhir" id="tanggal_akhir" required>
+            <button type="submit">Lihat Rekap</button>
+        </form>
+    </div>
+</div>
+
+<div class="search-container">
+    <label for="search-input">Search:</label>
+    <input type="text" id="search-input" placeholder="Cari berdasarkan nama, NISN, atau lainnya...">
+</div>
+
+<h2>Data Siswa</h2>
+<table id="data-table">
+    <thead>
+        <tr>
+            <th>NISN</th>
+            <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>Agama</th>
+            <th>Sekolah</th>
+            <th>NPSN</th>
+            <th>Kecamatan</th>
+            <th>Kabupaten/Kota</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+            <td>{{ student[3] }}</td>
+            <td>{{ student[4] }}</td>
+            <td>{{ student[5] }}</td>
+            <td>{{ student[6] }}</td>
+            <td>{{ student[7] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Pagination Controls -->
+<div id="pagination" class="pagination-controls">
+    <button id="prev-button" disabled>Previous</button>
+    <span id="page-info">Page 1</span>
+    <button id="next-button">Next</button>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Berdasarkan Sekolah</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <a href="/" class="back-link">Kembali ke Halaman Utama</a>
+
+    <h1>Rekap Berdasarkan Sekolah</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Sekolah</th>
+                <th>Jumlah</th>
+                <th>Tanggal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sekolah in sekolah_stats %}
+            <tr>
+                <td>{{ sekolah[0] }}</td>
+                <td>{{ sekolah[1] }}</td>
+                <td>{{ sekolah[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Siswa per Kabupaten/Kota</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <a href="/" class="back-link">Kembali ke Halaman Utama</a>
+
+    <h1>Total Siswa per Kabupaten/Kota</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Kabupaten/Kota</th>
+                <th>Jumlah Siswa</th>
+                <th>Laki-laki</th>
+                <th>Perempuan</th>
+                <th>Tanggal Rekap</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student[0] }}</td>
+                <td>{{ student[1] }}</td>
+                <td>{{ student[2] }}</td>
+                <td>{{ student[3] }}</td>
+                <td>{{ student[4] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

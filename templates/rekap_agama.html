@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Berdasarkan Agama</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <a href="/" class="back-link">Kembali ke Halaman Utama</a>
+
+    <h1>Rekap Berdasarkan Agama</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Agama</th>
+                <th>Jumlah_siswa</th>
+                <th>Tanggal</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for agama in agama_stats %}
+            <tr>
+                <td>{{ agama[0] }}</td>
+                <td>{{ agama[1] }}</td>
+                <td>{{ agama[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

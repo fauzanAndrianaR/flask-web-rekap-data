@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekap Siswa berdasarkan Jenis Kelamin</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+    <a href="/" class="back-link">Kembali ke Halaman Utama</a>
+
+    <h1>Rekap Siswa berdasarkan Jenis Kelamin</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Laki-laki</th>
+                <th>Perempuan</th>
+                <th>Tanggal Rekap</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in gender_stats %}
+            <tr>
+                <td>{{ stat[0] }}</td>
+                <td>{{ stat[1] }}</td>
+                <td>{{ stat[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Terakhir</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">Kembali ke Halaman Utama</a>
+
+        <h1>Data Terakhir yang di Input</h1>
+
+        
+        <h2>Rekap Total Siswa per Kabupaten/Kota</h2>
+        <table class="data-table" border="1">
+            <thead>
+                <tr>
+                    <th>Kabupaten/Kota</th>
+                    <th>Jumlah Siswa</th>
+                    <th>Jumlah Laki-laki</th>
+                    <th>Jumlah Perempuan</th>
+                    <th>Tanggal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ student[0] }}</td>
+                    <td>{{ student[1] }}</td>
+                    <td>{{ student[2] }}</td>
+                    <td>{{ student[3] }}</td>
+                    <td>{{ student[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h2>Rekap Jumlah Siswa Berdasarkan Jenis Kelamin</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Jumlah Laki-laki</th>
+                    <th>Jumlah Perempuan</th>
+                    <th>Tanggal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for gender in gender_stats %}
+                <tr>
+                    <td>{{ gender[0] }}</td>
+                    <td>{{ gender[1] }}</td>
+                    <td>{{ gender[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h2>Rekap Berdasarkan Agama</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Agama</th>
+                    <th>Jumlah Siswa</th>
+                    <th>Tanggal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for agama in agama_stats %}
+                <tr>
+                    <td>{{ agama[0] }}</td>
+                    <td>{{ agama[1] }}</td>
+                    <td>{{ agama[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h2>Rekap Berdasarkan Kecamatan</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Kecamatan</th>
+                    <th>Jumlah Siswa</th>
+                    <th>Tanggal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for kecamatan in kecamatan_stats %}
+                <tr>
+                    <td>{{ kecamatan[0] }}</td>
+                    <td>{{ kecamatan[1] }}</td>
+                    <td>{{ kecamatan[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <h2>Rekap Berdasarkan Sekolah</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nama Sekolah</th>
+                    <th>Jumlah Siswa</th>
+                    <th>Tanggal</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sekolah in sekolah_stats %}
+                <tr>
+                    <td>{{ sekolah[0] }}</td>
+                    <td>{{ sekolah[1] }}</td>
+                    <td>{{ sekolah[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </div>
+
+</body>
+</html>
