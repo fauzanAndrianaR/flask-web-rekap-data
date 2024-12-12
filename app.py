@@ -7,7 +7,7 @@ from newagregasi import rekap_total, rekap_jenis_kelamin, rekap_per_agama, rekap
 
 app = Flask(__name__)
 
-app.secret_key = 'your_secret_key'  # Gantilah dengan kunci yang lebih aman di produksi
+app.secret_key = 'your_secret_key'  
 
 
 # Load environment variables
@@ -193,7 +193,7 @@ def lihat_agregasi():
                 date 
             FROM siswa_rekap 
             WHERE date BETWEEN %s AND %s
-            ORDER BY date, jumlah_siswa DESC
+            ORDER BY date DESC, jumlah_siswa DESC
         """, (start_date, end_date))
 
         students = cursor.fetchall()
@@ -219,7 +219,7 @@ def lihat_agregasi():
                 date
             FROM siswa_rekap_agama 
             WHERE date BETWEEN %s AND %s
-            ORDER BY jumlah_siswa DESC
+            ORDER BY date DESC, jumlah_siswa DESC
         """, (start_date, end_date))
         
         agama_stats = cursor.fetchall()
@@ -232,7 +232,7 @@ def lihat_agregasi():
                 date 
             FROM siswa_rekap_kecamatan 
             WHERE date BETWEEN %s AND %s
-            ORDER BY jumlah_siswa DESC
+            ORDER BY date DESC, jumlah_siswa DESC
         """, (start_date, end_date))
         
         kecamatan_stats = cursor.fetchall()
@@ -245,7 +245,7 @@ def lihat_agregasi():
                 date
             FROM siswa_rekap_sekolah 
             WHERE date BETWEEN %s AND %s
-            ORDER BY jumlah_siswa  DESC
+            ORDER BY date DESC, jumlah_siswa  DESC
         """, (start_date, end_date))
         
         sekolah_stats = cursor.fetchall()
